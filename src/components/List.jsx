@@ -1,10 +1,13 @@
-const List = ({ item, removeFunction, checkTodo }) => {
+const List = ({ item, clickRemoveButtonHandler, checkTodo }) => {
   return (
     <div className="lists-arr" key={item.id}>
       <ul>{item.title}</ul>
       <li>{item.detail}</li>
       <div className="button-set">
-        <button className="delete-btn" onClick={() => removeFunction(item.id)}>
+        <button
+          className="delete-btn"
+          onClick={() => clickRemoveButtonHandler(item.id)}
+        >
           삭제
         </button>
 

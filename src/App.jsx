@@ -6,14 +6,24 @@ import List from "./components/List";
 // 초기값
 const App = () => {
   const [lists, setLists] = useState([
-    { id: 0, title: "리액트 공부하기", detail: "기초공부", isDone: false },
     {
-      id: 1,
-      title: "자바스크립트 공부하기",
-      detail: "입문공부",
+      id: 0,
+      title: "리액트 입문정복",
+      detail: "리액트 입문강의 3회 완강",
       isDone: false,
     },
-    { id: 2, title: "시간", detail: "절약", isDone: false },
+    {
+      id: 1,
+      title: "자바스크립트 공부",
+      detail: "JS문법 1주차 복습하기",
+      isDone: false,
+    },
+    {
+      id: 2,
+      title: "2시부터 6시까지 집중공부",
+      detail: "할때까지 가보자구!!",
+      isDone: false,
+    },
   ]);
 
   const [title, setTitle] = useState("");
@@ -99,7 +109,7 @@ const App = () => {
                 <List
                   item={item}
                   key={item.id}
-                  removeFunction={clickRemoveButtonHandler}
+                  clickRemoveButtonHandler={clickRemoveButtonHandler}
                   checkTodo={checkTodo}
                 />
               ))}
@@ -114,7 +124,7 @@ const App = () => {
                 <List
                   item={item}
                   key={item.id}
-                  removeFunction={clickRemoveButtonHandler}
+                  clickRemoveButtonHandler={clickRemoveButtonHandler}
                   checkTodo={checkTodo}
                 />
               ))}
