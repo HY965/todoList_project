@@ -1,3 +1,9 @@
+#root {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
 h2 {
   font-size: 30px;
   font-weight: bolder;
@@ -5,7 +11,7 @@ h2 {
 }
 
 .container {
-  width: 1200px;
+  /* width: 1200px; */
   /* height: 100%; */
   /* display: flex;
   justify-content: center; */
