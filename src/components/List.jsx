@@ -1,8 +1,12 @@
 const List = ({ item, clickRemoveButtonHandler, checkTodo }) => {
   return (
     <div className="lists-arr" key={item.id}>
-      <ul>{item.title}</ul>
-      <li>{item.detail}</li>
+      <div className="text-content">
+        <h4>{item.title}</h4>
+        <p>{item.detail}</p>
+        <p>{item.deadline}</p>
+      </div>
+
       <div className="button-set">
         <button
           className="delete-btn"
