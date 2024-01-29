@@ -103,9 +103,9 @@ h3 {
 
 h4 {
   font-weight: bold;
-  font-size: 19px;
+  font-size: 20px;
   text-align: center;
-  gap: 10px;
+  margin: 10px;
 }
 
 .add-list {
@@ -130,6 +130,7 @@ p {
   font-size: 15px;
   list-style: none;
   text-align: center;
+  margin: 10px;
 }
 
 .input-Style {
@@ -140,4 +141,7 @@ p {
 .text-content {
   flex-grow: 1;
   padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }

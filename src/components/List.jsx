@@ -4,7 +4,7 @@ const List = ({ item, clickRemoveButtonHandler, checkTodo }) => {
       <div className="text-content">
         <h4>{item.title}</h4>
         <p>{item.detail}</p>
-        <p>{item.deadline}</p>
+        <p>{item.deadline}까지</p>
       </div>
 
       <div className="button-set">
