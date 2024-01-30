@@ -35,11 +35,10 @@ h2 {
 }
 
 .working-add {
-  padding: 1.5rem;
 }
 
 .done-add {
-  padding: 1.5rem;
+  margin-top: 3rem;
 }
 
 .list-arr {
@@ -91,8 +90,6 @@ h2 {
   border-radius: 10px;
   display: flex;
   flex-direction: column;
-  /* display: flex;
-  align-items: center; */
 }
 
 h3 {
@@ -104,7 +101,6 @@ h3 {
 h4 {
   font-weight: bold;
   font-size: 20px;
-  text-align: center;
   margin: 10px;
 }
 
@@ -144,4 +140,7 @@ p {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+}
+select.sort-order {
+  margin: 1rem;
 }

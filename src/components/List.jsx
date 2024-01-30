@@ -1,10 +1,20 @@
 const List = ({ item, clickRemoveButtonHandler, checkTodo }) => {
+  //date
+  const specificDate = new Date(item.deadline);
+  specificDate.toLocaleDateString();
+  const date = new Date(item.deadline).toLocaleDateString("ko-KR", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+    weekday: "short",
+  });
+
   return (
     <div className="lists-arr" key={item.id}>
       <div className="text-content">
         <h4>{item.title}</h4>
         <p>{item.detail}</p>
-        <p>{item.deadline}까지</p>
+        <p>{date}까지</p>
       </div>
 
       <div className="button-set">

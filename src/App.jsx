@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import uuid from "react-uuid";
 import "./reset.css";
 import "./App.css";
@@ -11,14 +11,14 @@ const App = () => {
       id: uuid(),
       title: "리액트 입문정복",
       detail: "리액트 입문강의 3회 완강",
-      deadline: "2024-03-01",
+      deadline: "2024-01-10",
       isDone: false,
     },
     {
       id: uuid(),
       title: "자바스크립트 공부",
       detail: "JS문법 1주차 복습하기",
-      deadline: "2024-03-01",
+      deadline: "2024-02-01",
       isDone: false,
     },
     {
@@ -30,15 +30,28 @@ const App = () => {
     },
   ]);
 
-  // const [date, setDate] = useState([
-  //   { year: "numeric", month: "long", day: "numeric", weekday: "long" },
-  // ]);
-
-  // const date = new Date();
-
   const [title, setTitle] = useState("");
   const [detail, setDetail] = useState("");
-  const [deadline, setDeadline] = useState([]);
+  const [deadline, setDeadline] = useState("");
+  const [sortOrder, setSortOrder] = useState("asc");
+
+  useEffect(() => {
+    // 오름차순 & 내림차순
+    const sortLists = (order) => {
+      setLists((prevlists) => {
+        // 전역변수말고 안에서(지역변수) 해결해야 무한루프 안빠짐
+        const sortedLists = [...prevlists].sort((a, b) => {
+          if (order === "asc") {
+            return new Date(a.deadline) - new Date(b.deadline);
+          }
+          return new Date(b.deadline) - new Date(a.deadline);
+        });
+        return sortedLists;
+      });
+    };
+    sortLists(sortOrder);
+    // console.log(sortOrder);
+  }, [sortOrder]);
 
   const titleChangeHandler = (event) => {
     setTitle(event.target.value);
@@ -49,6 +62,10 @@ const App = () => {
 
   const dateChangeHandler = (event) => {
     setDeadline(event.target.value);
+  };
+
+  const sortOrderHandler = (event) => {
+    setSortOrder(event.target.value);
   };
 
   // 추가 버튼 클릭
@@ -71,14 +88,6 @@ const App = () => {
     // event.target.reset();
   };
 
-  // const date = new Date();
-  // const formattedDate = new Intl.DateTimeFormat("ko-KR", {
-  //   year: "numeric",
-  //   month: "long",
-  //   day: "numeric",
-  //   weekday: "long",
-  // }).format(date);
-
   // 완료 & 취소 클릭
   const checkTodo = (id) => {
     const tempButton = lists.filter((lists) => {
@@ -100,7 +109,6 @@ const App = () => {
     <div className="container">
       <header>
         <h2>My Todo List</h2>
-        {/* <div>{formattedDate}</div> */}
         <div className="header-content">
           <form className="add-list">
             <p className="input-title">제목</p>
@@ -135,6 +143,14 @@ const App = () => {
         </div>
       </header>
       <div className="content">
+        <select
+          value={sortOrder}
+          onChange={sortOrderHandler}
+          className="sort-order"
+        >
+          <option value="asc">오름차순</option>
+          <option value="desc">내림차순</option>
+        </select>
         <div className="working-add">
           <h3>🔥Working🔥</h3>
           <div className="list-arr">
