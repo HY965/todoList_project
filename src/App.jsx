@@ -3,6 +3,17 @@ import uuid from "react-uuid";
 import "./reset.css";
 import "./App.css";
 import List from "./components/List";
+import Globastyle from "./style/GlobaStyle";
+import {
+  CardList,
+  AddBtn,
+  InputTitle,
+  HeaderContent,
+  InputStyle,
+  SortOrder,
+  NavSet,
+  CardBundle,
+} from "./style/todoStyle";
 
 // 초기값
 const App = () => {
@@ -33,7 +44,7 @@ const App = () => {
   const [title, setTitle] = useState("");
   const [detail, setDetail] = useState("");
   const [deadline, setDeadline] = useState("");
-  const [sortOrder, setSortOrder] = useState("asc");
+  const [sortOrder, setSortOrder] = useState("asc"); // asc , 오름차순 기본설정
 
   useEffect(() => {
     // 오름차순 & 내림차순
@@ -106,83 +117,75 @@ const App = () => {
   };
 
   return (
-    <div className="container">
-      <header>
-        <h2>My Todo List</h2>
-        <div className="header-content">
-          <form className="add-list">
-            <p className="input-title">제목</p>
-            <input
-              className="input-Style"
-              type="text"
-              value={title}
-              onChange={titleChangeHandler}
-            />
-            <p className="input-detail">내용</p>
-            <input
-              className="input-Style"
-              type="text"
-              value={detail}
-              onChange={detailChangeHandler}
-            />
-            <p className="input-detail">마감날짜</p>
-            <input
-              className="input-Style"
-              type="date"
-              value={deadline}
-              onChange={dateChangeHandler}
-            />
-            <button
-              type="button"
-              className="add-btn"
-              onClick={clickAddButtonHandler}
-            >
-              추가하기
-            </button>
-          </form>
-        </div>
-      </header>
-      <div className="content">
-        <select
-          value={sortOrder}
-          onChange={sortOrderHandler}
-          className="sort-order"
-        >
-          <option value="asc">오름차순</option>
-          <option value="desc">내림차순</option>
-        </select>
-        <div className="working-add">
-          <h3>🔥Working🔥</h3>
-          <div className="list-arr">
-            {lists
-              .filter((list) => !list.isDone)
-              .map((item) => (
-                <List
-                  item={item}
-                  key={item.id}
-                  clickRemoveButtonHandler={clickRemoveButtonHandler}
-                  checkTodo={checkTodo}
-                />
-              ))}
-          </div>
-        </div>
-        <div className="done-add">
-          <h3>🍖Done!🍖</h3>
-          <div className="list-arr">
-            {lists
-              .filter((list) => list.isDone)
-              .map((item) => (
-                <List
-                  item={item}
-                  key={item.id}
-                  clickRemoveButtonHandler={clickRemoveButtonHandler}
-                  checkTodo={checkTodo}
-                />
-              ))}
-          </div>
+    <>
+      <Globastyle />
+      <div className="container">
+        <header>
+          <h2>My Todo List</h2>
+          <HeaderContent>
+            <NavSet>
+              <InputTitle>제목</InputTitle>
+              <InputStyle
+                type="text"
+                value={title}
+                onChange={titleChangeHandler}
+              />
+              <InputTitle>내용</InputTitle>
+              <InputStyle
+                type="text"
+                value={detail}
+                onChange={detailChangeHandler}
+              />
+              <InputTitle>마감날짜</InputTitle>
+              <InputStyle
+                type="date"
+                value={deadline}
+                onChange={dateChangeHandler}
+              />
+              <AddBtn type="button" onClick={clickAddButtonHandler}>
+                추가하기
+              </AddBtn>
+            </NavSet>
+          </HeaderContent>
+        </header>
+        <div className="content">
+          <SortOrder value={sortOrder} onChange={sortOrderHandler}>
+            <option value="asc">오름차순</option>
+            <option value="desc">내림차순</option>
+          </SortOrder>
+          <CardBundle>
+            <h3>🔥Working🔥</h3>
+            <CardList>
+              {lists
+                .filter((list) => !list.isDone)
+                .map((item) => (
+                  <List
+                    item={item}
+                    key={item.id}
+                    clickRemoveButtonHandler={clickRemoveButtonHandler}
+                    checkTodo={checkTodo}
+                  />
+                ))}
+            </CardList>
+          </CardBundle>
+          <CardBundle>
+            <h3>🍖Done!🍖</h3>
+            <CardList>
+              {lists
+                .filter((list) => list.isDone)
+                .map((item) => (
+                  <List
+                    item={item}
+                    key={item.id}
+                    clickRemoveButtonHandler={clickRemoveButtonHandler}
+                    checkTodo={checkTodo}
+                  />
+                ))}
+            </CardList>
+          </CardBundle>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
