@@ -1,6 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 
-const Globastyle = createGlobalStyle`
+const Globalstyle = createGlobalStyle`
 body {
 
     max-width: 1200px;
@@ -9,4 +9,4 @@ body {
   }
 `;
 // 글로벌스타일은 싱글이다 , 최상위에 한번만 넣어주면됨!
-export default Globastyle;
+export default Globalstyle;

@@ -3,7 +3,7 @@ import uuid from "react-uuid";
 import "./reset.css";
 import "./App.css";
 import List from "./components/List";
-import Globastyle from "./style/GlobaStyle";
+import Globalstyle from "./style/GlobalStyle";
 import {
   CardList,
   AddBtn,
@@ -118,7 +118,7 @@ const App = () => {
 
   return (
     <>
-      <Globastyle />
+      <Globalstyle />
       <div className="container">
         <header>
           <h2>My Todo List</h2>
