@@ -6,7 +6,7 @@ export const TextContent = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  text-decoration: ${(props) => (props.isDone ? "line-through" : "none")};
+  text-decoration: ${(props) => (props.$isDone ? "line-through" : "none")};
 `;
 
 export const ListsArr = styled.div`

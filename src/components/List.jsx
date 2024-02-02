@@ -19,7 +19,7 @@ const List = ({ item, clickRemoveButtonHandler, checkTodo }) => {
 
   return (
     <ListsArr key={item.id}>
-      <TextContent isDone={item.isDone}>
+      <TextContent $isDone={item.isDone}>
         <h4>{item.title}</h4>
         <p>{item.detail}</p>
         <p>{date}까지</p>
