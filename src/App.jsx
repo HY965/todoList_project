@@ -82,7 +82,9 @@ const App = () => {
   // 추가 버튼 클릭
   const clickAddButtonHandler = (event) => {
     event.preventDefault();
-    if (title === "" || detail === "") return;
+    if (title === "" || detail === "") {
+      return alert("필수값을 입력해주세요");
+    }
     const newLists = {
       id: uuid(),
       title,
@@ -96,7 +98,6 @@ const App = () => {
     setTitle("");
     setDetail("");
     setDeadline("");
-    // event.target.reset();
   };
 
   // 완료 & 취소 클릭
@@ -113,6 +114,7 @@ const App = () => {
   // 삭제 버튼 클릭
   const clickRemoveButtonHandler = (id) => {
     const newLists = lists.filter((lists) => lists.id !== id);
+
     setLists(newLists);
   };
 
