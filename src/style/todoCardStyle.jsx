@@ -53,3 +53,16 @@ export const BtnSet = styled.div`
   display: flex;
   justify-content: space-around;
 `;
+
+export const CardText = styled.p`
+  font-size: 15px;
+  list-style: none;
+  text-align: center;
+  margin: 10px;
+`;
+
+export const CardName = styled.h4`
+  font-weight: bold;
+  font-size: 1.3rem;
+  margin: 10px;
+`;

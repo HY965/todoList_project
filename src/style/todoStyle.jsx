@@ -28,7 +28,7 @@ export const AddBtn = styled.button`
   border: none;
   padding: 0.6rem 2rem;
   cursor: pointer;
-  margin: 0 0 0 25rem;
+  margin: 0 0 0 22rem;
   &:hover {
     background-color: #0682f0;
     transition: all 0.2s ease 0s;

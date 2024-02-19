@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
 import uuid from "react-uuid";
-import "./reset.css";
-import "./App.css";
 import List from "./components/List";
 import Globalstyle from "./style/GlobalStyle";
 import {
@@ -14,6 +12,7 @@ import {
   NavSet,
   CardBundle,
 } from "./style/todoStyle";
+import styled from "styled-components";
 
 // 초기값
 const App = () => {
@@ -123,7 +122,7 @@ const App = () => {
       <Globalstyle />
       <div className="container">
         <header>
-          <h2>My Todo List</h2>
+          <HeaderName>My Todo List</HeaderName>
           <HeaderContent>
             <NavSet>
               <InputTitle>제목</InputTitle>
@@ -156,7 +155,7 @@ const App = () => {
             <option value="desc">내림차순</option>
           </SortOrder>
           <CardBundle>
-            <h3>🔥Working🔥</h3>
+            <IsDoneName>🔥Working🔥</IsDoneName>
             <CardList>
               {lists
                 .filter((list) => !list.isDone)
@@ -171,7 +170,7 @@ const App = () => {
             </CardList>
           </CardBundle>
           <CardBundle>
-            <h3>🍖Done!🍖</h3>
+            <IsDoneName>🍖Done!🍖</IsDoneName>
             <CardList>
               {lists
                 .filter((list) => list.isDone)
@@ -192,3 +191,14 @@ const App = () => {
 };
 
 export default App;
+
+const HeaderName = styled.h2`
+  font-size: 30px;
+  font-weight: bolder;
+  padding: 1.5rem;
+`;
+
+const IsDoneName = styled.h3`
+  font-size: 1.5rem;
+  font-weight: bold;
+`;

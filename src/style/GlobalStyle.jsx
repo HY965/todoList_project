@@ -1,6 +1,8 @@
 import { createGlobalStyle } from "styled-components";
+import reset from "styled-reset";
 
 const Globalstyle = createGlobalStyle`
+${reset}
 body {
 
     max-width: 1200px;

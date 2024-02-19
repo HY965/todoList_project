@@ -1,12 +1,17 @@
+import { Link, useParams } from "react-router-dom";
+
 import {
   TextContent,
   ListsArr,
   CompleteBtn,
   DeleteBtn,
   BtnSet,
+  CardText,
+  CardName,
 } from "../style/todoCardStyle";
 
 const List = ({ item, clickRemoveButtonHandler, checkTodo }) => {
+  // const { listsId } = useParams();
   //date
   const specificDate = new Date(item.deadline);
   specificDate.toLocaleDateString();
@@ -20,9 +25,10 @@ const List = ({ item, clickRemoveButtonHandler, checkTodo }) => {
   return (
     <ListsArr key={item.id}>
       <TextContent $isDone={item.isDone}>
-        <h4>{item.title}</h4>
-        <p>{item.detail}</p>
-        <p>{date}까지</p>
+        {/* <Link to={`/${listsId}`} /> */}
+        <CardName>{item.title}</CardName>
+        <CardText>{item.detail}</CardText>
+        <CardText>{date}까지</CardText>
       </TextContent>
 
       <BtnSet>
