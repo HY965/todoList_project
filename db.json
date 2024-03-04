@@ -1,10 +1,10 @@
 {
-  "lists": [
+  "todos": [
     {
       "id": 1,
-      "title": "리액트 입문정복",
-      "detail": "리액트 입문강의 3회 완강",
-      "deadline": "2024-01-10",
+      "title": "리액트 심화정복",
+      "detail": "리액트 심화 개인과제 제출",
+      "deadline": "2024-02-29",
       "isDone": false
     }
   ]

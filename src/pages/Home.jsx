@@ -1,14 +1,8 @@
 import React from "react";
-import App from "./App";
-import Globalstyle from "../style/GlobalStyle";
+import TodoList from "../components/TodoList";
 
 function Home() {
-  return (
-    <>
-      <Globalstyle />
-      <App />
-    </>
-  );
+  return <TodoList />;
 }
 
 export default Home;
